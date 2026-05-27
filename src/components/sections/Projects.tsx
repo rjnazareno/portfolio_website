@@ -110,7 +110,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="editorial-panel relative scroll-mt-28 overflow-hidden px-5 py-28 sm:px-12 lg:px-20 2xl:px-28"
+      className="editorial-panel relative scroll-mt-28 overflow-visible px-5 py-28 sm:px-12 lg:px-20 2xl:px-28"
     >
       <WatermarkText text="Portfolio" />
 
@@ -237,7 +237,7 @@ export default function Projects() {
                     <p className="overflow-hidden text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
                       {project.description}
                     </p>
-                      <div className="pointer-events-none absolute left-0 right-0 top-full z-30 mt-3 rounded-lg border border-ink/10 bg-panel p-4 opacity-0 shadow-[0_18px_40px_rgba(22,22,22,0.14)] transition-opacity duration-200 group-hover/details:opacity-100 group-focus/details:opacity-100">
+                      <div className="pointer-events-none absolute left-0 right-0 top-full z-50 mt-3 rounded-lg border border-ink/10 bg-panel p-4 opacity-0 shadow-[0_18px_40px_rgba(22,22,22,0.14)] transition-opacity duration-200 group-hover/details:opacity-100 group-focus/details:opacity-100">
                         <p className="text-sm leading-relaxed text-muted">
                           {project.description}
                         </p>
