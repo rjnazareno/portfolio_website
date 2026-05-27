@@ -198,7 +198,7 @@ export default function Projects() {
                   )}
 
                   {hasProjectLinks && (
-                    <div className="absolute inset-0 flex items-center justify-center gap-4 bg-ink/70 opacity-0 transition-opacity group-hover:opacity-100">
+                    <div className="absolute inset-0 z-40 flex items-center justify-center gap-4 bg-ink/70 opacity-0 transition-opacity group-hover:opacity-100">
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
@@ -223,22 +223,9 @@ export default function Projects() {
                       )}
                     </div>
                   )}
-                </div>
 
-                <div className="p-5 sm:p-6">
-                  <h3 className="mb-3 text-2xl font-semibold leading-tight text-ink">
-                    {project.title}
-                  </h3>
-                  <div
-                    className="group/details relative mb-5"
-                    tabIndex={0}
-                    aria-label={`${project.title} full description`}
-                  >
-                    <p className="overflow-hidden text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
-                      {project.description}
-                    </p>
-
-                    <div className="pointer-events-none absolute left-0 right-0 top-full z-30 mt-3 rounded-lg border border-ink/10 bg-panel p-4 opacity-0 shadow-[0_18px_40px_rgba(22,22,22,0.14)] transition-opacity duration-200 group-hover/details:opacity-100 group-focus/details:opacity-100">
+                  <div className="absolute inset-0 flex items-center justify-center p-6 opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none z-30">
+                    <div className="max-w-md rounded-lg border border-ink/10 bg-panel p-4 shadow-[0_18px_40px_rgba(22,22,22,0.14)]">
                       <p className="text-sm leading-relaxed text-muted">
                         {project.description}
                       </p>
@@ -255,6 +242,23 @@ export default function Projects() {
                         </ul>
                       )}
                     </div>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6">
+                  <h3 className="mb-3 text-2xl font-semibold leading-tight text-ink">
+                    {project.title}
+                  </h3>
+                  <div
+                    className="group/details relative mb-5"
+                    tabIndex={0}
+                    aria-label={`${project.title} full description`}
+                  >
+                    <p className="overflow-hidden text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+                      {project.description}
+                    </p>
+
+                    
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (

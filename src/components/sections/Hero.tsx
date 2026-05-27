@@ -43,7 +43,7 @@ export default function Hero() {
         <span className="text-transparent [-webkit-text-stroke:1.5px_var(--color-ink)] lg:[-webkit-text-stroke:2px_var(--color-ink)]">
           Resty
         </span>{" "}
-        <span>James</span>
+        <span className="text-transparent [-webkit-text-stroke:1.5px_var(--color-ink)] lg:[-webkit-text-stroke:2px_var(--color-ink)]">James</span>
         <br />
         <span>Nazareno</span>
       </motion.h1>
