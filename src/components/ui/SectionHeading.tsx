@@ -16,10 +16,10 @@ export default function SectionHeading({ label, title }: SectionHeadingProps) {
       transition={{ duration: 0.6 }}
       className="mb-12"
     >
-      <p className="mb-2 text-sm font-semibold tracking-[0.2em] uppercase text-accent">
-        {label}
-      </p>
-      <h2 className="text-4xl font-black md:text-5xl">{title}</h2>
+      <p className="mb-2 text-sm font-semibold uppercase text-muted">{label}</p>
+      <h2 className="text-4xl font-black uppercase leading-none text-ink md:text-6xl">
+        {title}
+      </h2>
     </motion.div>
   );
 }

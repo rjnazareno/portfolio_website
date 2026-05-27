@@ -1,21 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Color Palette ── */
-  --color-navy-950: #020817;
-  --color-navy-900: #0B1224;
-  --color-navy-800: #111A33;
-  --color-navy-700: #1A2544;
-  --color-navy-600: #243155;
-
-  --color-accent: #6366F1;
-  --color-accent-light: #818CF8;
-  --color-cyan: #22D3EE;
-  --color-cyan-light: #67E8F9;
-
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  --color-glass-hover: rgba(255, 255, 255, 0.08);
+  /* ── Monochrome Editorial Palette ── */
+  --color-ink: #161616;
+  --color-ink-soft: #3f3f3f;
+  --color-muted: #737373;
+  --color-line: #d8d8d8;
+  --color-paper: #f7f7f4;
+  --color-panel: #ffffff;
+  --color-mist: #e7e7e3;
+  --color-charcoal: #242424;
+  --color-cream: #fbfbf8;
+  --color-success: #24c875;
 
   /* ── Fonts ── */
   --font-sans: var(--font-geist-sans);
@@ -25,13 +21,33 @@
 /* ── Base Styles ── */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
 }
 
 body {
-  background: var(--color-navy-950);
-  color: #e2e8f0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(232, 232, 228, 0.78)),
+    var(--color-mist);
+  color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.18) 0,
+      rgba(255, 255, 255, 0.18) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  opacity: 0.34;
 }
 
 /* ── Scrollbar ── */
@@ -39,48 +55,59 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-navy-950);
+  background: var(--color-mist);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
+  background: var(--color-ink);
   border-radius: 3px;
 }
 
 /* ── Selection ── */
 ::selection {
-  background: var(--color-accent);
+  background: var(--color-ink);
   color: white;
 }
 
-/* ── Glass Card Utility ── */
-.glass {
-  background: var(--color-glass);
-  border: 1px solid var(--color-glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* ── Full-Bleed Editorial Surface ── */
+.editorial-panel {
+  width: 100%;
+  border-top: 1px solid rgba(22, 22, 22, 0.08);
+  background: rgba(255, 255, 255, 0.88);
 }
 
-.glass:hover {
-  background: var(--color-glass-hover);
+.editorial-panel-dark {
+  background: var(--color-charcoal);
+  color: var(--color-paper);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.surface-card {
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 48px rgba(22, 22, 22, 0.07);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 24px rgba(22, 22, 22, 0.07);
 }
 
 /* ── Watermark Text ── */
 .watermark-track {
   white-space: nowrap;
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(4.5rem, 12vw, 9.5rem);
   font-weight: 900;
   text-transform: uppercase;
-  color: rgba(99, 102, 241, 0.06);
-  line-height: 1.1;
+  color: rgba(22, 22, 22, 0.035);
+  letter-spacing: 0;
+  line-height: 0.9;
   user-select: none;
-  pointer-events: none;
-}
-
-/* ── Glow Blob ── */
-.glow-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.3;
   pointer-events: none;
 }

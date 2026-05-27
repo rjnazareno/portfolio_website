@@ -1,5 +1,4 @@
 import ScrollProgress from "../components/ui/ScrollProgress";
-import CursorOrbs from "../components/ui/CursorOrbs";
 import Navbar from "../components/Navbar";
 import Hero from "../components/sections/Hero";
 import About from "../components/sections/About";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <>
       <ScrollProgress />
-      <CursorOrbs />
       <Navbar />
       <main>
         <Hero />

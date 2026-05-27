@@ -23,8 +23,6 @@ import { VscCode } from "react-icons/vsc";
 import { IconType } from "react-icons";
 import skills from "../../data/skills";
 import WatermarkText from "../ui/WatermarkText";
-import SectionHeading from "../ui/SectionHeading";
-import GlassCard from "../ui/GlassCard";
 
 const iconMap: Record<string, IconType> = {
   SiReact,
@@ -50,33 +48,29 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden py-32"
+      className="editorial-panel relative scroll-mt-28 overflow-hidden px-5 py-28 sm:px-12 lg:px-20 2xl:px-28"
     >
-      <WatermarkText text="Technologies" />
+      <WatermarkText text="Service" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-12">
-        <SectionHeading label="Technologies" title="My Tech Stack" />
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-16 max-w-2xl text-lg leading-relaxed text-white/50"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mb-14 grid gap-6 md:grid-cols-[0.8fr_1fr] md:items-end"
         >
-          I build{" "}
-          <span className="font-semibold text-accent">
-            full-stack applications
-          </span>
-          , combining best frontend frameworks, modern backend architecture,
-          clean API design, and{" "}
-          <span className="font-semibold text-cyan">
-            user-focused experiences
-          </span>
-          .
-        </motion.p>
+          <h2 className="text-4xl font-black uppercase leading-none text-ink md:text-6xl">
+            What I Build With
+          </h2>
+          <p className="max-w-xl text-base leading-relaxed text-muted md:text-lg">
+            A focused toolkit for building full-stack applications: responsive
+            interfaces, clean APIs, reliable data layers, and thoughtful
+            deployment workflows.
+          </p>
+        </motion.div>
 
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="divide-y divide-ink/12 border-y border-ink/12">
           {skills.map((category, catIdx) => (
             <motion.div
               key={category.title}
@@ -84,21 +78,22 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: catIdx * 0.15 }}
+              className="grid gap-6 py-8 md:grid-cols-[0.75fr_1.7fr] md:items-center"
             >
-              <h3 className="mb-6 text-xs font-bold tracking-[0.2em] uppercase text-white/30">
+              <h3 className="text-2xl font-black uppercase leading-none text-ink md:text-4xl">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill) => {
                   const Icon = iconMap[skill.icon];
                   return (
-                    <GlassCard
+                    <span
                       key={skill.name}
-                      className="flex items-center gap-2 !p-3 text-sm"
+                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-ink/10 bg-panel/75 px-4 py-2 text-sm font-semibold text-ink shadow-[0_8px_22px_rgba(22,22,22,0.04)]"
                     >
-                      {Icon && <Icon className="h-5 w-5 text-accent-light" />}
+                      {Icon && <Icon className="h-5 w-5 text-ink-soft" />}
                       <span>{skill.name}</span>
-                    </GlassCard>
+                    </span>
                   );
                 })}
               </div>
