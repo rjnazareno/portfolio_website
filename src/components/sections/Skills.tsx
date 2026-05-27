@@ -3,45 +3,47 @@
 import { motion } from "framer-motion";
 import {
   SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
   SiTailwindcss,
   SiHtml5,
   SiCss3,
   SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiPostgresql,
-  SiPrisma,
   SiGit,
   SiGithub,
-  SiFigma,
   SiVercel,
+  SiPhp,
+  SiPython,
+  SiMysql,
+  SiFirebase,
+  SiFlutter,
+  SiVite,
+  SiCloudinary,
+  SiHostinger,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
 import { IconType } from "react-icons";
 import skills from "../../data/skills";
 import WatermarkText from "../ui/WatermarkText";
 
 const iconMap: Record<string, IconType> = {
   SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiJavascript,
   SiTailwindcss,
   SiHtml5,
   SiCss3,
   SiNodedotjs,
   SiExpress,
   SiMongodb,
-  SiPostgresql,
-  SiPrisma,
   SiGit,
   SiGithub,
-  SiFigma,
   SiVercel,
-  VscCode,
+  SiPhp,
+  SiPython,
+  SiMysql,
+  SiFirebase,
+  SiFlutter,
+  SiVite,
+  SiCloudinary,
+  SiHostinger,
 };
 
 export default function Skills() {
@@ -61,12 +63,11 @@ export default function Skills() {
           className="mb-14 grid gap-6 md:grid-cols-[0.8fr_1fr] md:items-end"
         >
           <h2 className="text-4xl font-black uppercase leading-none text-ink md:text-6xl">
-            What I Build With
+            Tech Stack
           </h2>
           <p className="max-w-xl text-base leading-relaxed text-muted md:text-lg">
-            A focused toolkit for building full-stack applications: responsive
-            interfaces, clean APIs, reliable data layers, and thoughtful
-            deployment workflows.
+            Technical skills I use to build responsive interfaces, clean APIs,
+            reliable data layers, and deployment-ready applications.
           </p>
         </motion.div>
 

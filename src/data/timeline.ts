@@ -9,7 +9,7 @@ const timeline: TimelineEntry[] = [
     year: "2023",
     title: "Started Learning Web Development",
     description:
-      "Began my journey with HTML, CSS, and JavaScript — building fundamentals from the ground up.",
+      "Began my journey with HTML, CSS, JavaScript, and Python, building strong fundamentals through small projects, practice layouts, and early programming exercises.",
   },
   {
     year: "2024",
@@ -19,15 +19,15 @@ const timeline: TimelineEntry[] = [
   },
   {
     year: "2025",
-    title: "Building Real-World Applications",
+    title: "Internship & Real-World Systems",
     description:
-      "Focused on Next.js, TypeScript, and modern architecture patterns. Contributed to open-source projects.",
+      "Interned at RSS Pelozden, a BPO company in Clark, Pampanga, where I built HARLEY, my biggest project so far, and learned to manage domains, databases, deployments, and production workflows.",
   },
   {
     year: "2026",
-    title: "Leveling Up",
+    title: "Junior Software Developer",
     description:
-      "Actively seeking opportunities, building portfolio projects, and deepening expertise in scalable systems.",
+      "Hired as a part-time Junior Software Developer at RSS, continuing to build real-world projects including a ticketing system and an inventory system while also taking on freelance work.",
   },
 ];
 
