@@ -38,7 +38,6 @@ const projects: Project[] = [
     highlights: [
       "Searchable catalog with browse filters, perfume detail pages, brands, notes, dupes, and shareable query URLs.",
       "Express/MongoDB REST API with Mongoose models, JWT auth, text search, and seeded fragrance data.",
-      "AI fragrance assistant using OpenAI for conversational recommendations and dupe guidance.",
     ],
     liveUrl: "https://souq-intel.vercel.app/",
   },
