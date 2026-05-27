@@ -223,26 +223,6 @@ export default function Projects() {
                       )}
                     </div>
                   )}
-
-                  <div className="absolute inset-0 flex items-center justify-center p-6 opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none z-30">
-                    <div className="max-w-md rounded-lg border border-ink/10 bg-panel p-4 shadow-[0_18px_40px_rgba(22,22,22,0.14)]">
-                      <p className="text-sm leading-relaxed text-muted">
-                        {project.description}
-                      </p>
-                      {project.highlights && (
-                        <ul className="mt-4 space-y-2 border-l border-ink/10 pl-4">
-                          {project.highlights.map((highlight) => (
-                            <li
-                              key={highlight}
-                              className="text-xs leading-relaxed text-ink-soft"
-                            >
-                              {highlight}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
                 </div>
 
                 <div className="p-5 sm:p-6">
@@ -257,8 +237,23 @@ export default function Projects() {
                     <p className="overflow-hidden text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
                       {project.description}
                     </p>
-
-                    
+                      <div className="pointer-events-none absolute left-0 right-0 top-full z-30 mt-3 rounded-lg border border-ink/10 bg-panel p-4 opacity-0 shadow-[0_18px_40px_rgba(22,22,22,0.14)] transition-opacity duration-200 group-hover/details:opacity-100 group-focus/details:opacity-100">
+                        <p className="text-sm leading-relaxed text-muted">
+                          {project.description}
+                        </p>
+                        {project.highlights && (
+                          <ul className="mt-4 space-y-2 border-l border-ink/10 pl-4">
+                            {project.highlights.map((highlight) => (
+                              <li
+                                key={highlight}
+                                className="text-xs leading-relaxed text-ink-soft"
+                              >
+                                {highlight}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
