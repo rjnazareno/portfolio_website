@@ -153,7 +153,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="group relative overflow-hidden rounded-lg border border-ink/10 bg-panel/70 shadow-[0_18px_50px_rgba(22,22,22,0.05)] transition-transform hover:-translate-y-1"
+                className="group relative overflow-visible rounded-lg border border-ink/10 bg-panel/70 shadow-[0_18px_50px_rgba(22,22,22,0.05)] transition-transform hover:-translate-y-1"
               >
                 <div className="relative aspect-[1.28] w-full overflow-hidden border-b border-ink/10 bg-[#eeeeea] p-4">
                   {isHarley || isSouqIntel ? (
