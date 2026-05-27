@@ -7,6 +7,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 const navLinks = [
   { label: "Work", href: "#projects" },
   { label: "Service", href: "#skills" },
+  { label: "Certs", href: "#certifications" },
   { label: "Experience", href: "#timeline" },
   { label: "Contact", href: "#contact" },
 ];
