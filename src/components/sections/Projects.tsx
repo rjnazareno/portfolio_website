@@ -229,21 +229,33 @@ export default function Projects() {
                   <h3 className="mb-3 text-2xl font-semibold leading-tight text-ink">
                     {project.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-muted">
-                    {project.description}
-                  </p>
-                  {project.highlights && (
-                    <ul className="mb-5 space-y-2 border-l border-ink/10 pl-4">
-                      {project.highlights.map((highlight) => (
-                        <li
-                          key={highlight}
-                          className="text-xs leading-relaxed text-ink-soft"
-                        >
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <div
+                    className="group/details relative mb-5"
+                    tabIndex={0}
+                    aria-label={`${project.title} full description`}
+                  >
+                    <p className="overflow-hidden text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+                      {project.description}
+                    </p>
+
+                    <div className="pointer-events-none absolute left-0 right-0 top-full z-30 mt-3 rounded-lg border border-ink/10 bg-panel p-4 opacity-0 shadow-[0_18px_40px_rgba(22,22,22,0.14)] transition-opacity duration-200 group-hover/details:opacity-100 group-focus/details:opacity-100">
+                      <p className="text-sm leading-relaxed text-muted">
+                        {project.description}
+                      </p>
+                      {project.highlights && (
+                        <ul className="mt-4 space-y-2 border-l border-ink/10 pl-4">
+                          {project.highlights.map((highlight) => (
+                            <li
+                              key={highlight}
+                              className="text-xs leading-relaxed text-ink-soft"
+                            >
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
