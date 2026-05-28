@@ -27,7 +27,7 @@ const timeline: TimelineEntry[] = [
     year: "2026",
     title: "Junior Web Developer",
     description:
-      "Hired as a part-time Junior Software Developer at RSS, continuing to build real-world projects including a ticketing system and an inventory system.",
+      "Hired as a part-time Junior Web Developer at RSS, continuing to build real-world projects including a ticketing system and an inventory system.",
   },
 ];
 
