@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const navLinks = [
-  { label: "Work", href: "#projects" },
-  { label: "Service", href: "#skills" },
-  { label: "Certs", href: "#certifications" },
-  { label: "Experience", href: "#timeline" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#projects" },
+  { label: "Service", href: "/#skills" },
+  { label: "Certs", href: "/#certifications" },
+  { label: "Experience", href: "/#timeline" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -20,22 +21,22 @@ export default function Navbar() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-panel/95 shadow-[0_8px_30px_rgba(22,22,22,0.06)] backdrop-blur-md">
         <nav className="px-4 sm:px-8 lg:px-16" aria-label="Main navigation">
           <div className="grid min-h-20 w-full grid-cols-[1fr_auto] items-center gap-3 md:min-h-24 md:grid-cols-[auto_1fr_auto] md:gap-8">
-            <a
-              href="#hero"
+            <Link
+              href="/#hero"
               className="w-fit whitespace-nowrap text-sm font-black uppercase text-ink transition-colors hover:text-muted sm:text-base"
             >
               Resty James
-            </a>
+            </Link>
 
             <div className="hidden items-center justify-center gap-8 text-sm font-medium text-ink md:flex lg:gap-16 lg:text-base">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className="whitespace-nowrap transition-colors hover:text-muted"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -96,13 +97,13 @@ export default function Navbar() {
                     visible: { opacity: 1, y: 0 },
                   }}
                 >
-                  <a
+                  <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
                     className="text-4xl font-black uppercase leading-none text-ink transition-colors hover:text-muted"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </motion.ul>

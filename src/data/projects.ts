@@ -28,6 +28,11 @@ const projects: Project[] = [
       "A Flutter dating app for the UA community with swipe discovery, mutual matches, real-time chat, rich profiles, and Firebase-backed live data.",
     image: "/projects/project2.png",
     tags: ["Flutter", "Dart", "Firebase", "Firestore", "Cloudinary", "Riverpod"],
+    highlights: [
+      "Swipe-based discovery with match states and profile-first browsing for campus users.",
+      "Real-time chat, rich profiles, and image handling backed by Firebase and Cloudinary.",
+      "Riverpod state management for predictable app flows across discovery, likes, and messaging.",
+    ],
   },
   {
     title: "SouqIntel",
@@ -40,6 +45,19 @@ const projects: Project[] = [
       "Express/MongoDB REST API with Mongoose models, JWT auth, text search, and seeded fragrance data.",
     ],
     liveUrl: "https://souq-intel.vercel.app/",
+  },
+  {
+    title: "SSITE Website",
+    description:
+      "A React/Vite organization website for SSITE with announcements, events, officer profiles, polls, member login, and Firebase-backed admin management.",
+    image: "/projects/ssite_placeholder.png",
+    tags: ["React", "Vite", "Firebase", "Firestore", "Tailwind CSS"],
+    highlights: [
+      "Public pages for announcements, events, officers, polls, contact, and membership entry points.",
+      "Admin dashboard for managing organization content, member records, roles, messages, and analytics.",
+      "Firebase and Firestore integration for authenticated workflows and live organization data.",
+    ],
+    liveUrl: "https://ssite-website.vercel.app/",
   },
 ];
 
