@@ -1,131 +1,156 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
 import ProjectVisual from "../projects/ProjectVisual";
+import { ProjectStats } from "../projects/ScreenViewer";
 import projects from "../../data/projects";
-import WatermarkText from "../ui/WatermarkText";
+import { ArrowSwap, Reveal, RevealImage, RevealText } from "../ui/motion";
+
+const featured = projects.filter((p) => p.featured);
+const more = projects.filter((p) => !p.featured);
+
+function Tags({ tags }: { tags: string[] }) {
+  return (
+    <ul className="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <li
+          key={tag}
+          className="rounded-full border border-ink/10 px-3 py-1 text-xs font-medium text-ink-soft"
+        >
+          {tag}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="editorial-panel relative scroll-mt-28 overflow-visible px-5 py-28 sm:px-12 lg:px-20 2xl:px-28"
+      className="editorial-panel relative scroll-mt-24 px-5 py-28 sm:px-12 md:py-36 lg:px-20 2xl:px-28"
     >
-      <WatermarkText text="Portfolio" />
-
-      <div className="relative z-10 mx-auto w-full max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end"
-        >
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-16 grid gap-8 md:mb-24 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <h2 className="text-4xl font-black uppercase leading-none text-ink md:text-6xl">
-              Selected Work
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-              A small set of full-stack projects built around clear interfaces,
-              practical architecture, and reliable user flows.
-            </p>
+            <RevealText
+              as="h2"
+              text="Selected Work"
+              accent={1}
+              className="text-[min(3rem,11vw)] font-black uppercase leading-[0.9] tracking-[-0.035em] text-ink md:text-7xl"
+            />
+            <Reveal delay={0.15}>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+                Production systems I built for real businesses, followed by
+                earlier full-stack and mobile projects.
+              </p>
+            </Reveal>
           </div>
-          <Link
-            href="/work"
-            className="pill w-fit px-6 py-3.5 text-base font-semibold text-ink transition-transform hover:-translate-y-0.5"
-          >
-            View All Work
-          </Link>
-        </motion.div>
+          <Reveal delay={0.25}>
+            <Link
+              href="/work"
+              className="pill group gap-2.5 px-6 text-base font-semibold text-ink hover:border-ink hover:bg-ink hover:text-panel"
+            >
+              View All Work
+              <ArrowSwap />
+            </Link>
+          </Reveal>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, i) => {
-            const hasProjectLinks = project.liveUrl || project.repoUrl;
+        <div className="space-y-24 md:space-y-32">
+          {featured.map((project, i) => (
+            <article
+              key={project.slug}
+              className="group grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-14"
+            >
+              <Link
+                href={`/work#${project.slug}`}
+                tabIndex={-1}
+                aria-hidden
+                className={`block ${i % 2 ? "lg:order-2" : ""}`}
+              >
+                <RevealImage className="relative aspect-16/11 rounded-lg border border-ink/10 bg-[#eeeeea]">
+                  <div className="h-full p-3 sm:p-4">
+                    <ProjectVisual project={project} />
+                  </div>
+                </RevealImage>
+              </Link>
+
+              <Reveal delay={0.1}>
+                <h3 className="text-[min(2.25rem,9vw)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-ink md:text-5xl">
+                  {project.title}
+                </h3>
+                {project.context && (
+                  <p className="mt-3 text-base font-semibold text-ink-soft">{project.context}</p>
+                )}
+                <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">
+                  {project.description}
+                </p>
+                {project.stats && (
+                  <div className="mt-8">
+                    <ProjectStats stats={project.stats} />
+                  </div>
+                )}
+                <div className="mt-6">
+                  <Tags tags={project.tags} />
+                </div>
+                <Link
+                  href={`/work#${project.slug}`}
+                  className="pill mt-8 gap-2.5 px-6 text-base font-semibold text-ink hover:border-ink hover:bg-ink hover:text-panel"
+                >
+                  See the screens
+                  <ArrowSwap />
+                </Link>
+              </Reveal>
+            </article>
+          ))}
+        </div>
+
+        <RevealText
+          as="h3"
+          text="More Projects"
+          className="mb-10 mt-28 border-t border-ink/15 pt-10 text-2xl font-black uppercase leading-none tracking-[-0.02em] text-ink md:mt-36 md:text-4xl"
+        />
+
+        <div className="grid gap-x-8 gap-y-14 md:grid-cols-3">
+          {more.map((project, i) => {
+            const href = project.liveUrl ?? `/work#${project.slug}`;
+            const external = Boolean(project.liveUrl);
+            const target = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
             return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="group relative overflow-visible rounded-lg border border-ink/10 bg-panel/70 shadow-[0_18px_50px_rgba(22,22,22,0.05)] transition-transform hover:-translate-y-1"
-              >
-                <div className="relative aspect-[1.28] w-full overflow-hidden border-b border-ink/10 bg-[#eeeeea] p-4">
-                  <ProjectVisual project={project} index={i} />
-
-                  {hasProjectLinks && (
-                    <div className="absolute inset-0 z-40 flex items-center justify-center gap-4 bg-ink/70 opacity-0 transition-opacity group-hover:opacity-100">
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex h-12 w-12 items-center justify-center rounded-full bg-panel text-ink transition-transform hover:-translate-y-0.5"
-                          aria-label={`${project.title} live site`}
-                        >
-                          <FiExternalLink size={20} />
-                        </a>
-                      )}
-                      {project.repoUrl && (
-                        <a
-                          href={project.repoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex h-12 w-12 items-center justify-center rounded-full bg-panel text-ink transition-transform hover:-translate-y-0.5"
-                          aria-label={`${project.title} repository`}
-                        >
-                          <FiGithub size={20} />
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-5 sm:p-6">
-                  <h3 className="mb-3 text-2xl font-semibold leading-tight text-ink">
-                    {project.title}
-                  </h3>
-                  <div
-                    className="group/details relative mb-5"
-                    tabIndex={0}
-                    aria-label={`${project.title} full description`}
+              <article key={project.slug} className="group">
+                <a href={href} tabIndex={-1} aria-hidden {...target} className="block">
+                  <RevealImage
+                    className="relative aspect-4/3 rounded-lg border border-ink/10 bg-[#eeeeea]"
+                    delay={i * 0.08}
                   >
-                    <p className="overflow-hidden text-sm leading-relaxed text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
-                      {project.description}
-                    </p>
-                    <div className="pointer-events-none absolute left-0 right-0 top-full z-50 mt-3 rounded-lg border border-ink/10 bg-panel p-4 opacity-0 shadow-[0_18px_40px_rgba(22,22,22,0.14)] transition-opacity duration-200 group-hover/details:opacity-100 group-focus/details:opacity-100">
-                      <p className="text-sm leading-relaxed text-muted">
-                        {project.description}
-                      </p>
-                      {project.highlights && (
-                        <ul className="mt-4 space-y-2 border-l border-ink/10 pl-4">
-                          {project.highlights.map((highlight) => (
-                            <li
-                              key={highlight}
-                              className="text-xs leading-relaxed text-ink-soft"
-                            >
-                              {highlight}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                    <div className="h-full p-2.5 sm:p-3">
+                      <ProjectVisual project={project} />
                     </div>
+                  </RevealImage>
+                </a>
+
+                <Reveal delay={0.1}>
+                  <div className="mt-5 flex items-start justify-between gap-4">
+                    <h4 className="text-xl font-black uppercase leading-none tracking-[-0.02em] text-ink md:text-2xl">
+                      {project.title}
+                    </h4>
+                    <a
+                      href={href}
+                      {...target}
+                      className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-ink"
+                    >
+                      {external ? "Live site" : "Details"}
+                      <ArrowSwap />
+                    </a>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-ink/10 bg-panel px-3 py-1 text-xs font-semibold text-ink-soft"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>
+                  <div className="mt-4">
+                    <Tags tags={project.tags} />
                   </div>
-                </div>
-              </motion.div>
+                </Reveal>
+              </article>
             );
           })}
         </div>

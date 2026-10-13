@@ -1,6 +1,7 @@
 import ScrollProgress from "../components/ui/ScrollProgress";
 import Navbar from "../components/Navbar";
 import Hero from "../components/sections/Hero";
+import Marquee from "../components/sections/Marquee";
 import About from "../components/sections/About";
 import Skills from "../components/sections/Skills";
 import Certifications from "../components/sections/Certifications";
@@ -16,11 +17,12 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Marquee />
         <About />
+        <Timeline />
+        <Projects />
         <Skills />
         <Certifications />
-        <Projects />
-        <Timeline />
         <CTA />
         <Contact />
       </main>
