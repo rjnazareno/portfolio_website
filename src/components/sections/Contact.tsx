@@ -1,117 +1,78 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  FiArrowUpRight,
-  FiGithub,
-  FiLinkedin,
-  FiMail,
-  FiPhone,
-} from "react-icons/fi";
-import WatermarkText from "../ui/WatermarkText";
+import { ArrowSwap, Magnetic, Reveal, RevealText } from "../ui/motion";
+
+const links = [
+  { label: "GitHub", href: "https://github.com/rjnazareno" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/resty-james-nazareno-142ab4345" },
+  { label: "+63 945 506 9726", href: "tel:+639455069726" },
+  { label: "Resume", href: "/Resty_Nazareno_resume.pdf" },
+];
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="editorial-panel relative min-h-[72vh] scroll-mt-28 overflow-hidden px-5 py-28 sm:px-12 lg:px-20 2xl:px-28"
+      data-nav="dark"
+      className="grain editorial-panel editorial-panel-dark relative scroll-mt-24 px-5 pb-10 pt-28 sm:px-12 md:pt-40 lg:px-20 2xl:px-28"
     >
-      <WatermarkText text="Contact" />
+      <div className="mx-auto w-full max-w-6xl">
+        <RevealText
+          as="h2"
+          text="Have a project in mind?"
+          accent={3}
+          className="max-w-4xl text-[clamp(2.75rem,7.5vw,6.5rem)] font-black uppercase leading-[0.9] tracking-[-0.035em] text-paper"
+        />
 
-      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 text-4xl font-black uppercase leading-none text-ink md:text-6xl"
-        >
-          Have a project in mind?
-        </motion.h2>
+        <Reveal delay={0.15}>
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/60">
+            Looking for a developer? I&apos;d love to hear from you and
+            collaborate on something clear, useful, and impactful.
+          </p>
+        </Reveal>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="mb-9 max-w-2xl text-lg leading-relaxed text-muted"
-        >
-          Have a project in mind or looking for a developer? I&apos;d love to
-          hear from you and collaborate on something clear, useful, and
-          impactful.
-        </motion.p>
+        <Reveal delay={0.25} className="mt-14 md:mt-20">
+          <Magnetic strength={0.12}>
+            <a
+              href="mailto:rjmanago@gmail.com"
+              className="group inline-flex items-center gap-3 text-[clamp(1.6rem,5vw,4rem)] font-black leading-none tracking-[-0.03em] text-paper md:gap-5"
+            >
+              <span className="relative pb-2">
+                rjmanago@gmail.com
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white/20" />
+                <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-paper transition-transform duration-700 ease-out-expo group-hover:scale-x-100 group-focus-visible:scale-x-100" />
+              </span>
+              <ArrowSwap />
+            </a>
+          </Magnetic>
+        </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-10 flex flex-col gap-3 sm:flex-row"
-        >
-          <a
-            href="mailto:rjmanago@gmail.com"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-4 text-base font-semibold text-panel shadow-[0_14px_28px_rgba(22,22,22,0.2)] transition-transform hover:-translate-y-0.5"
-          >
-            Contact Me
-            <FiArrowUpRight />
-          </a>
-          <a
-            href="https://github.com/rjnazareno"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pill gap-2 px-6 py-3.5 text-base font-semibold text-ink transition-transform hover:-translate-y-0.5"
-            aria-label="GitHub"
-          >
-            <FiGithub />
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/resty-james-nazareno-142ab4345"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pill gap-2 px-6 py-3.5 text-base font-semibold text-ink transition-transform hover:-translate-y-0.5"
-            aria-label="LinkedIn"
-          >
-            <FiLinkedin />
-            LinkedIn
-          </a>
-          <a
-            href="tel:09455069726"
-            className="pill gap-2 px-6 py-3.5 text-base font-semibold text-ink transition-transform hover:-translate-y-0.5"
-            aria-label="Phone number"
-          >
-            <FiPhone />
-            09455069726
-          </a>
-        </motion.div>
+        <Reveal delay={0.35} className="mt-16 md:mt-24">
+          <ul className="grid border-t border-white/15 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4">
+            {links.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  {...(link.href.startsWith("http") || link.href.endsWith(".pdf")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="group flex items-center justify-between border-b border-white/15 py-5 text-lg font-semibold text-paper"
+                >
+                  {link.label}
+                  <ArrowSwap className="text-white/50 transition-colors group-hover:text-paper" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.45 }}
-          className="flex flex-wrap justify-center gap-3"
-        >
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pill px-6 py-3.5 text-base font-semibold text-ink transition-transform hover:-translate-y-0.5"
-          >
-            Resume
+        <div className="mt-24 flex flex-wrap items-center justify-between gap-4 text-sm text-white/55">
+          <p>&copy; {new Date().getFullYear()} Resty James Nazareno.</p>
+          <p>San Fernando, Pampanga, Philippines</p>
+          <a href="#" className="transition-colors hover:text-paper">
+            Back to top
           </a>
-          <a
-            href="mailto:rjmanago@gmail.com"
-            className="pill gap-2 px-6 py-3.5 text-base font-semibold text-ink transition-transform hover:-translate-y-0.5"
-          >
-            <FiMail />
-            rjmanago@gmail.com
-          </a>
-        </motion.div>
-
-        <p className="mt-20 text-xs text-muted">
-          &copy; {new Date().getFullYear()} Resty James Nazareno.
-        </p>
+        </div>
       </div>
     </section>
   );
