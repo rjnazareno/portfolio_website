@@ -55,7 +55,7 @@ export function RevealText({
                 }
                 variants={{
                   hidden: { y: "115%" },
-                  visible: { y: "0%", transition: { duration: 0.9, ease: EASE } },
+                  visible: { y: "0%", transition: { duration: 0.7, ease: EASE } },
                 }}
               >
                 {word}
@@ -81,59 +81,12 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-        transitionEnd: { filter: "none" },
-      }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.9, delay, ease: EASE }}
+      transition={{ duration: 0.6, delay, ease: EASE }}
     >
       {children}
-    </motion.div>
-  );
-}
-
-/* Image wipes up from the bottom while settling from a slight zoom. */
-export function RevealImage({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  // The observed wrapper stays unclipped: a fully clipped target never reports as in view.
-  return (
-    <motion.div
-      className="h-full"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <motion.div
-        className={`overflow-hidden ${className}`}
-        variants={{
-          hidden: { clipPath: "inset(100% 0% 0% 0%)" },
-          visible: {
-            clipPath: "inset(0% 0% 0% 0%)",
-            transition: { duration: 1.2, delay, ease: EASE },
-          },
-        }}
-      >
-        <motion.div
-          className="h-full w-full"
-          variants={{
-            hidden: { scale: 1.2 },
-            visible: { scale: 1, transition: { duration: 1.6, delay, ease: EASE } },
-          }}
-        >
-          {children}
-        </motion.div>
-      </motion.div>
     </motion.div>
   );
 }

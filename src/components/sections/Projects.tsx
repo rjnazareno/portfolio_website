@@ -4,7 +4,7 @@ import Link from "next/link";
 import ProjectVisual from "../projects/ProjectVisual";
 import { ProjectStats } from "../projects/ScreenViewer";
 import projects from "../../data/projects";
-import { ArrowSwap, Reveal, RevealImage, RevealText } from "../ui/motion";
+import { ArrowSwap, Reveal, RevealText } from "../ui/motion";
 
 const featured = projects.filter((p) => p.featured);
 const more = projects.filter((p) => !p.featured);
@@ -69,11 +69,11 @@ export default function Projects() {
                 aria-hidden
                 className={`block ${i % 2 ? "lg:order-2" : ""}`}
               >
-                <RevealImage className="relative aspect-16/11 rounded-lg border border-ink/10 bg-[#eeeeea]">
+                <Reveal className="relative aspect-16/11 rounded-lg border border-ink/10 bg-[#eeeeea]">
                   <div className="h-full p-3 sm:p-4">
                     <ProjectVisual project={project} />
                   </div>
-                </RevealImage>
+                </Reveal>
               </Link>
 
               <Reveal delay={0.1}>
@@ -121,14 +121,14 @@ export default function Projects() {
             return (
               <article key={project.slug} className="group">
                 <a href={href} tabIndex={-1} aria-hidden {...target} className="block">
-                  <RevealImage
+                  <Reveal
                     className="relative aspect-4/3 rounded-lg border border-ink/10 bg-[#eeeeea]"
                     delay={i * 0.08}
                   >
                     <div className="h-full p-2.5 sm:p-3">
                       <ProjectVisual project={project} />
                     </div>
-                  </RevealImage>
+                  </Reveal>
                 </a>
 
                 <Reveal delay={0.1}>

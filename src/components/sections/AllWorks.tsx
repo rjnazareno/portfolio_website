@@ -5,7 +5,7 @@ import { FiGithub } from "react-icons/fi";
 import ProjectVisual from "../projects/ProjectVisual";
 import ScreenViewer, { ProjectStats } from "../projects/ScreenViewer";
 import projects from "../../data/projects";
-import { ArrowSwap, EASE, Reveal, RevealImage, RevealText } from "../ui/motion";
+import { ArrowSwap, EASE, Reveal, RevealText } from "../ui/motion";
 
 export default function AllWorks() {
   return (
@@ -42,7 +42,7 @@ export default function AllWorks() {
                 initial={{ opacity: 0, y: 36 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.9, ease: EASE }}
+                transition={{ duration: 0.6, ease: EASE }}
                 className="group scroll-mt-24 overflow-clip rounded-lg border border-ink/10 bg-panel shadow-[0_20px_60px_rgba(22,22,22,0.06)]"
               >
                 <div
@@ -59,9 +59,9 @@ export default function AllWorks() {
                   >
                     {/* Stays in view while the details column scrolls past. */}
                     <div className="xl:sticky xl:top-28">
-                      <RevealImage className="aspect-16/11 rounded-md" delay={0.15}>
+                      <Reveal className="aspect-16/11 rounded-md" delay={0.15}>
                         <ProjectVisual project={project} />
-                      </RevealImage>
+                      </Reveal>
                     </div>
                   </div>
 
