@@ -13,7 +13,7 @@ export default function AllWorks() {
       id="all-work"
       className="editorial-panel relative scroll-mt-24 px-4 pb-24 pt-32 sm:px-6 md:pt-40 lg:px-8 2xl:px-10"
     >
-      <div className="w-full">
+      <div className="mx-auto w-full max-w-6xl">
         <div className="mb-12 grid gap-6 border-b border-ink/10 pb-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <RevealText
             as="h1"
