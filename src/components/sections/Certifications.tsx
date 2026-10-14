@@ -52,7 +52,7 @@ export default function Certifications() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.9, delay: index * 0.1, ease: EASE }}
+              transition={{ duration: 0.6, delay: index * 0.08, ease: EASE }}
               className="group flex h-full flex-col rounded-lg border border-ink/10 bg-panel transition-[translate,box-shadow] duration-500 ease-out-expo hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(22,22,22,0.1)]"
             >
               <a

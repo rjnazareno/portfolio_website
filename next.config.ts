@@ -10,6 +10,8 @@ const tailwindCssEntry = path.join(
 );
 
 const nextConfig: NextConfig = {
+  // Screenshots are mostly small UI text, which the default quality of 75 smudges.
+  images: { qualities: [90] },
   turbopack: {
     root: projectRoot,
     resolveAlias: {
