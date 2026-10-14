@@ -59,9 +59,15 @@ export default function AllWorks() {
                   >
                     {/* Stays in view while the details column scrolls past. */}
                     <div className="xl:sticky xl:top-28">
-                      <Reveal className="aspect-16/11 rounded-md" delay={0.15}>
-                        <ProjectVisual project={project} />
-                      </Reveal>
+                      {project.screens ? (
+                        <Reveal delay={0.15}>
+                          <ScreenViewer screens={project.screens} name={project.title} />
+                        </Reveal>
+                      ) : (
+                        <Reveal className="aspect-16/11 rounded-md" delay={0.15}>
+                          <ProjectVisual project={project} />
+                        </Reveal>
+                      )}
                     </div>
                   </div>
 
@@ -143,11 +149,6 @@ export default function AllWorks() {
                   </div>
                 </div>
 
-                {project.screens && (
-                  <div className="border-t border-ink/10 p-6 sm:p-8 xl:p-10">
-                    <ScreenViewer screens={project.screens} name={project.title} />
-                  </div>
-                )}
               </motion.article>
             );
           })}
