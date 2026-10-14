@@ -24,6 +24,7 @@ export interface Project {
 
 const harley = "/projects/harley";
 const crm = "/projects/crm";
+const souq = "/projects/souqintel";
 
 const projects: Project[] = [
   {
@@ -106,12 +107,32 @@ const projects: Project[] = [
     title: "SouqIntel",
     description:
       "An AI-assisted product discovery platform that helps shoppers find affordable Middle Eastern dupes for designer fragrances, with a shopping assistant running on a locally hosted language model.",
-    image: "/projects/uamatch/souqintel%20.png",
+    image: `${souq}/hero.jpg`,
     tags: ["React", "Vite", "Express.js", "MongoDB", "Ollama"],
     highlights: [
       "AI shopping assistant on a locally hosted model (Ollama) that recommends products from user preferences, keeping user data in-house with no per-request API costs.",
       "Searchable catalog with browse filters, perfume detail pages, brands, notes, dupes, and shareable query URLs.",
       "Express REST API over a structured MongoDB catalog, with JWT auth and reusable React search and filter components.",
+    ],
+    stats: [
+      { value: "138", label: "fragrances in the catalog" },
+      { value: "66", label: "matched dupe pairs" },
+      { value: "24", label: "trending in 2026" },
+      { value: "93%", label: "biggest saving" },
+    ],
+    screens: [
+      { group: "Desktop", label: "Home", src: `${souq}/hero.jpg`, title: "Home", caption: "The brand mark is a souq arch, so the hero is that arch at full size, framed in liquid gold and lit from inside. Each designer original stands next to its Middle Eastern dupe, and the pairs rotate on their own." },
+      { group: "Desktop", label: "Pairs", src: `${souq}/pairs.jpg`, title: "Pair explorer", caption: "Pick a pair and the notes both perfumes share light up in gold. Althaïr and Liquid Brun have 7 of 8 notes in common." },
+      { group: "Desktop", label: "Le Male pair", src: `${souq}/pairs-kingdom.jpg`, title: "Le Male Elixir and The Kingdom", caption: "Struck-through notes belong only to the original, and the plus notes are what the dupe adds." },
+      { group: "Desktop", label: "Trending", src: `${souq}/trending.jpg`, title: "Trending in 2026", caption: "Viral Arabian gourmands and the year's designer launches, each with its own notes and image." },
+      { group: "Desktop", label: "Families", src: `${souq}/families.jpg`, title: "Explore by family", caption: "A typographic index. Hovering a family brings up one of its bottles, which follows the cursor." },
+      { group: "Desktop", label: "Collection", src: `${souq}/browse.jpg`, title: "Collection", caption: "Filter by family, type, price and gender, and sort trending scents first." },
+      { group: "Desktop", label: "Dupe Finder", src: `${souq}/finder.jpg`, title: "Dupe Finder", caption: "Search an original and get its matches with similarity and savings: Le Male Elixir returns The Kingdom at an 80% match, 70% cheaper." },
+      { group: "Desktop", label: "Detail", src: `${souq}/detail.jpg`, title: "Perfume detail", caption: "Every dupe links back to its original, and every original to its dupes." },
+      { group: "Desktop", label: "Notes", src: `${souq}/notes.jpg`, title: "Note pyramid", caption: "Tiers widen from top to base, so the layout reads as the pyramid it describes." },
+      { group: "Mobile", label: "Home", src: `${souq}/m-hero.jpg`, title: "Mobile home", caption: "The same composition with lighter machinery: a still gold arch in place of the shaders.", phone: true },
+      { group: "Mobile", label: "Pairs", src: `${souq}/m-pairs.jpg`, title: "Mobile pair explorer", caption: "The same rotating pairs, with the notes they share lit in gold.", phone: true },
+      { group: "Mobile", label: "Detail", src: `${souq}/m-detail.jpg`, title: "Mobile perfume detail", caption: "Khamrah's detail page on a phone.", phone: true },
     ],
     liveUrl: "https://souq-intel.vercel.app/",
   },
