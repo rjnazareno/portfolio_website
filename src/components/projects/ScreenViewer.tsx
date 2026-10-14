@@ -78,7 +78,7 @@ export default function ScreenViewer({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Open ${screen.title} full size`}
-        className="relative mt-6 block aspect-16/10 overflow-hidden rounded-lg border border-ink/10 bg-[#eeeeea]"
+        className="relative mt-6 block aspect-16/10 max-w-4xl overflow-hidden rounded-lg border border-ink/10 bg-[#eeeeea]"
       >
         <AnimatePresence initial={false}>
           <motion.div
@@ -108,7 +108,7 @@ export default function ScreenViewer({
                 src={screen.src}
                 alt={screen.title}
                 fill
-                sizes="(min-width: 1280px) 1200px, 100vw"
+                sizes="(min-width: 1024px) 896px, 100vw"
                 className="object-cover object-top"
               />
             )}

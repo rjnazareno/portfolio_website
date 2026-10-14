@@ -20,7 +20,7 @@ const timeline: TimelineEntry[] = [
     ],
   },
   {
-    period: "Sep 2026 – Present",
+    period: "2026",
     role: "Freelance Full-Stack Developer",
     company: "Ghost AI Solutions",
     meta: "Freelance · Remote",
