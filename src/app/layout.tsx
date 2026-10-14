@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Geist, Geist_Mono } from "next/font/google";
+import Cursor from "../components/ui/Cursor";
 import { MotionProvider } from "../components/ui/motion";
 import "./globals.css";
 
@@ -43,7 +44,10 @@ export default function RootLayout({
         <noscript>
           <style>{`[style*="opacity:0"]{opacity:1!important}[style*="translate"]{transform:none!important}[style*="inset("]{clip-path:none!important}`}</style>
         </noscript>
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          {children}
+          <Cursor />
+        </MotionProvider>
       </body>
     </html>
   );
