@@ -17,6 +17,7 @@ const timeline: TimelineEntry[] = [
       "Automated the full asset lifecycle, from purchase order to assignment and accountability, giving the company a single record of where each asset is and who is responsible for it.",
       "Overhauled the ticketing system with SLA tracking, giving management measurable response and resolution times for every employee ticket.",
       "Accelerate delivery with AI coding assistants (Claude, OpenAI Codex) for module planning, data modeling, and debugging, reviewing and testing every change before release.",
+      "Collaborate through Linear, logging every new feature, bug fix, and improvement as a ticket and taking each through pull request review, staging tests, and production release.",
     ],
   },
   {
@@ -35,7 +36,7 @@ const timeline: TimelineEntry[] = [
     period: "Aug 2025 – Jun 2026",
     role: "Junior Web Developer",
     company: "Resource Staffing Solutions (RSS)",
-    meta: "Consultant, part-time · Clark, Pampanga",
+    meta: "Consultant · Clark, Pampanga",
     highlights: [
       "Built Harley, the company's web-based HRIS (PHP, Laravel, React, JavaScript, MySQL, Tailwind CSS), starting with timekeeping: attendance, schedules, and leave and overtime requests.",
       "Designed approval workflows with role-based access control and secure request validation, limiting each user to the data and actions their role allows.",
