@@ -23,6 +23,7 @@ export interface Project {
 
 const harley = "/projects/harley";
 const crm = "/projects/crm";
+const sites = "/projects/crm/sites";
 const souq = "/projects/souqintel";
 
 const projects: Project[] = [
@@ -79,6 +80,7 @@ const projects: Project[] = [
     tags: ["Laravel", "PHP 8.4", "PostgreSQL", "Tailwind CSS", "Vite", "Geolocation API", "Railway"],
     highlights: [
       "Website enquiries land in a lead queue. Accepting one starts an estimate with good, better and best options that the customer picks from a link, and it becomes a job.",
+      "Connected both companies' live websites, cleanandbrightservices.com and naksservices.com, so every estimate request posts straight into the lead queue, with email as a fallback and appointment-text consent on the forms.",
       "Scheduling with crew assignment, double-booking checks, and staff shared across both brands, each with its own colors, logo and data.",
       "A phone view for the crew with directions, gate codes and checklists, plus location-checked clock-in that sends anything odd to an office review queue.",
       "Payments, tips split evenly across the crew, expenses with receipts, and profit reports.",
@@ -98,6 +100,17 @@ const projects: Project[] = [
       { group: "Office", src: `${crm}/14-estimate-record.png`, title: "Estimate", caption: "Good, better and best options with cost, price and margin on each. The customer picks one from a link, and it becomes a job." },
       { group: "Crew", src: `${crm}/30-field-schedule.png`, title: "Today's jobs", caption: "Crew members see only their own jobs, with directions, gate codes and checklists.", phone: true },
       { group: "Crew", src: `${crm}/31-field-job.png`, title: "On the clock", caption: "Location-checked clock-in and clock-out on site. It warns when a shift runs past its scheduled end.", phone: true },
+      { group: "Clean & Bright", src: `${sites}/cb-hero.jpg`, title: "Clean & Bright", caption: "The first of the two websites that feed the CRM: a video hero with both seasons in the headline, a free-estimate button and the phone number up front." },
+      { group: "Clean & Bright", src: `${sites}/cb-services.jpg`, title: "Services", caption: "Pressure washing, window cleaning and Christmas lights as expanding photo panels, each opening its own page." },
+      { group: "Clean & Bright", src: `${sites}/cb-promo.jpg`, title: "Holiday offer", caption: "A pop-up that prices Christmas lights by the foot and compares them to typical rates." },
+      { group: "Clean & Bright", src: `${sites}/cb-form.jpg`, title: "Free estimate", caption: "Four ways to ask for a quote. The online form posts straight into the CRM, with email as a fallback." },
+      { group: "Clean & Bright", src: `${sites}/cb-mobile.jpg`, title: "Clean & Bright on a phone", caption: "The home page on a phone.", phone: true },
+      { group: "NAKS", src: `${sites}/naks-hero.jpg`, title: "NAKS Property Services", caption: "The parent company's website: a dark hero with a video collage of real work and a gold call to action." },
+      { group: "NAKS", src: `${sites}/naks-services.jpg`, title: "Services", caption: "Lighting, exterior care and subcontracting, each with its own photo." },
+      { group: "NAKS", src: `${sites}/naks-beforeafter.jpg`, title: "Before and after", caption: "Same spot, before and after. The photo flips on hover or tap." },
+      { group: "NAKS", src: `${sites}/naks-book.jpg`, title: "Quote request", caption: "A step-by-step quote form that first checks the address is in the service area. Finished requests post into the CRM." },
+      { group: "NAKS", src: `${sites}/naks-promo.jpg`, title: "Christmas offers", caption: "Seasonal posters in a pop-up viewer, with a quote link under each one." },
+      { group: "NAKS", src: `${sites}/naks-mobile.jpg`, title: "NAKS on a phone", caption: "The home page on a phone.", phone: true },
     ],
     featured: true,
   },
