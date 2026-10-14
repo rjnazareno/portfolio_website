@@ -27,24 +27,6 @@ const links = [
   { label: "Phone", href: "tel:+639455069726" },
 ];
 
-function Letters({ text, delay }: { text: string; delay: number }) {
-  return (
-    <span className="-my-[0.2em] inline-flex overflow-y-clip py-[0.2em]">
-      {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          initial={{ y: "110%" }}
-          animate={{ y: "0%" }}
-          transition={{ duration: 1.1, delay: delay + i * 0.04, ease: EASE }}
-        >
-          {char === " " ? " " : char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
-
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
@@ -115,13 +97,12 @@ export default function Hero() {
         style={{ y: nameY }}
         className="pointer-events-none relative z-10 xl:absolute xl:inset-x-0 xl:top-[13vh]"
       >
-        <span className="sr-only">Resty James Nazareno</span>
-        <span aria-hidden className="block w-fit xl:mx-auto">
+        <span className="block w-fit xl:mx-auto">
           <span className="block pl-[0.04em] font-serif text-[clamp(2.4rem,8.5vw,5.75rem)] font-medium italic leading-none text-paper/85">
-            <Letters text="Resty James" delay={0.2} />
-          </span>
+            Resty James
+          </span>{" "}
           <span className="block text-[clamp(3.4rem,15.5vw,15.5rem)] font-black uppercase leading-[0.8] tracking-[-0.04em] text-paper">
-            <Letters text="Nazareno" delay={0.45} />
+            Nazareno
           </span>
         </span>
       </motion.h1>
@@ -129,29 +110,21 @@ export default function Hero() {
       {/* A soft light sits behind the name; the portrait stands in front of it. */}
       <div className="relative mx-auto -mt-2 h-[420px] w-full max-w-[360px] sm:-mt-6 sm:h-[540px] sm:max-w-[420px] xl:absolute xl:bottom-0 xl:left-1/2 xl:mt-0 xl:h-[64vh] xl:max-w-[460px] xl:-ml-[230px] 2xl:h-[68vh] 2xl:max-w-[520px] 2xl:-ml-[260px]">
         <motion.div style={{ y: stageY }} className="absolute inset-0 z-0">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.8, ease: EASE }}
+          <div
             className="absolute -inset-x-1/2 -top-[15%] bottom-0 rounded-full bg-[radial-gradient(closest-side,rgba(247,247,244,0.2),rgba(247,247,244,0.06)_55%,transparent)]"
           />
         </motion.div>
 
-        <motion.div style={{ y: personY }} className="group absolute inset-0 z-20">
-          <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.35, ease: EASE }}
-            className="h-full w-full mask-[linear-gradient(to_bottom,black_78%,transparent)]"
-          >
+        <motion.div style={{ y: personY }} className="absolute inset-0 z-20">
+          <div className="h-full w-full mask-[linear-gradient(to_bottom,black_78%,transparent)]">
             <Image
               src={heroPortrait}
               alt="Resty James Nazareno"
               priority
               sizes="(min-width: 1536px) 660px, (min-width: 1024px) 580px, 92vw"
-              className="h-full w-full origin-bottom scale-[1.18] object-contain object-bottom contrast-[1.08] grayscale transition-[filter] duration-700 group-hover:grayscale-0"
+              className="h-full w-full origin-bottom scale-[1.18] object-contain object-bottom"
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 
