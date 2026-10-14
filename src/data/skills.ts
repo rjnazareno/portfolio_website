@@ -62,6 +62,7 @@ const skills: SkillCategory[] = [
     skills: [
       { name: "Git", icon: "SiGit" },
       { name: "GitHub", icon: "SiGithub" },
+      { name: "Linear", icon: "SiLinear" },
       { name: "Docker", icon: "SiDocker" },
       { name: "Railway", icon: "SiRailway" },
       { name: "Vite", icon: "SiVite" },
