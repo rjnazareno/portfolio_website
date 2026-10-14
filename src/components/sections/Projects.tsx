@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import ProjectVisual from "../projects/ProjectVisual";
-import { ProjectStats } from "../projects/ScreenViewer";
+import ScreenViewer, { ProjectStats } from "../projects/ScreenViewer";
 import projects from "../../data/projects";
 import { ArrowSwap, Reveal, RevealText } from "../ui/motion";
 
@@ -63,18 +63,15 @@ export default function Projects() {
               key={project.slug}
               className="group grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-14"
             >
-              <Link
-                href={`/work#${project.slug}`}
-                tabIndex={-1}
-                aria-hidden
-                className={`block ${i % 2 ? "lg:order-2" : ""}`}
-              >
-                <Reveal className="relative aspect-16/11 rounded-lg border border-ink/10 bg-[#eeeeea]">
-                  <div className="h-full p-3 sm:p-4">
+              <Reveal className={i % 2 ? "lg:order-2" : ""}>
+                {project.screens ? (
+                  <ScreenViewer screens={project.screens} name={project.title} />
+                ) : (
+                  <div className="relative aspect-16/11 rounded-lg border border-ink/10 bg-[#eeeeea] p-3 sm:p-4">
                     <ProjectVisual project={project} />
                   </div>
-                </Reveal>
-              </Link>
+                )}
+              </Reveal>
 
               <Reveal delay={0.1}>
                 <h3 className="text-[min(2.25rem,9vw)] font-black uppercase leading-[0.95] tracking-[-0.03em] text-ink md:text-5xl">
@@ -94,13 +91,6 @@ export default function Projects() {
                 <div className="mt-6">
                   <Tags tags={project.tags} />
                 </div>
-                <Link
-                  href={`/work#${project.slug}`}
-                  className="pill mt-8 gap-2.5 px-6 text-base font-semibold text-ink hover:border-ink hover:bg-ink hover:text-panel"
-                >
-                  See the screens
-                  <ArrowSwap />
-                </Link>
               </Reveal>
             </article>
           ))}
